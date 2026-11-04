@@ -9,21 +9,25 @@
       "steps": [
         {
           "click": "#new-project",
-          "label": "New project"
+          "label": "New project",
+          "opens": "New project"
         },
         {
           "fill": "project-name-input",
           "label": "Name",
-          "value": "Ozone and child asthma emergency visits, New York City"
+          "value": "Ozone and child asthma emergency visits, New York City",
+          "dialog": "New project"
         },
         {
           "fill": "project-subject-input",
           "label": "Subject",
-          "value": "Daily counts, ages 5 to 17, 2016 to 2025"
+          "value": "Daily counts, ages 5 to 17, 2016 to 2025",
+          "dialog": "New project"
         },
         {
           "click": "#project-create",
-          "label": "Create project"
+          "label": "Create project",
+          "dialog": "New project"
         },
         {
           "fill": "workflow-name-edit",
@@ -43,37 +47,44 @@
         },
         {
           "click": "#open-table",
-          "label": "Import tabular data"
+          "label": "Import tabular data",
+          "opens": "Import tabular data"
         },
         {
           "click": "#table-remote summary",
-          "label": "Or fetch from a URL"
+          "label": "Or fetch from a URL",
+          "dialog": "Import tabular data"
         },
         {
           "fill": "table-url",
           "label": "URL of a CSV, Stata file or zip",
-          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content",
+          "dialog": "Import tabular data"
         },
         {
           "click": "#table-fetch",
-          "label": "Fetch"
+          "label": "Fetch",
+          "dialog": "Import tabular data"
         },
         {
           "choose": "table-entry",
           "label": "File inside the archive",
           "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
-          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"
+          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv",
+          "dialog": "Import tabular data"
         },
         {
           "choose": "table-shape",
           "label": "Shape of the file",
           "value": "long",
-          "shown": "Long · one row per observation, one value column"
+          "shown": "Long · one row per observation, one value column",
+          "dialog": "Import tabular data"
         },
         {
           "choose": "table-value",
           "label": "Value column",
-          "value": "count"
+          "value": "count",
+          "dialog": "Import tabular data"
         },
         {
           "tick": "table-keys",
@@ -84,12 +95,14 @@
             "pm25",
             "no2",
             "tmean"
-          ]
+          ],
+          "dialog": "Import tabular data"
         },
         {
           "keyRole": "date",
           "value": "primary",
-          "shown": "Primary key"
+          "shown": "Primary key",
+          "dialog": "Import tabular data"
         },
         {
           "note": "The unit is the one the authors' data dictionary gives for count."
@@ -97,11 +110,13 @@
         {
           "fill": "table-unit",
           "label": "Unit of the value (entered by you)",
-          "value": "visits/day"
+          "value": "visits/day",
+          "dialog": "Import tabular data"
         },
         {
           "click": "#table-save",
-          "label": "Save table"
+          "label": "Save table",
+          "dialog": "Import tabular data"
         },
         {
           "note": "The smoke days: two dates, both kept."
@@ -289,39 +304,46 @@
         },
         {
           "click": "#open-table",
-          "label": "Import tabular data"
+          "label": "Import tabular data",
+          "opens": "Import tabular data"
         },
         {
           "click": "#table-remote summary",
-          "label": "Or fetch from a URL"
+          "label": "Or fetch from a URL",
+          "dialog": "Import tabular data"
         },
         {
           "fill": "table-url",
           "label": "URL of a CSV, Stata file or zip",
-          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content",
+          "dialog": "Import tabular data"
         },
         {
           "click": "#table-fetch",
-          "label": "Fetch"
+          "label": "Fetch",
+          "dialog": "Import tabular data"
         },
         {
           "choose": "table-entry",
           "label": "File inside the archive",
           "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
-          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"
+          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv",
+          "dialog": "Import tabular data"
         },
         {
           "choose": "table-shape",
           "label": "Shape of the file",
           "value": "wide",
-          "shown": "Wide · one row per subject, a column per variable"
+          "shown": "Wide · one row per subject, a column per variable",
+          "dialog": "Import tabular data"
         },
         {
           "tick": "table-keys",
           "label": "Key columns",
           "values": [
             "date"
-          ]
+          ],
+          "dialog": "Import tabular data"
         },
         {
           "tick": "table-values",
@@ -331,16 +353,19 @@
             "o3",
             "pm25",
             "tmean"
-          ]
+          ],
+          "dialog": "Import tabular data"
         },
         {
           "fill": "table-measure-key",
           "label": "Name for the column holding the variable names",
-          "value": "variable"
+          "value": "variable",
+          "dialog": "Import tabular data"
         },
         {
           "click": "#table-save",
-          "label": "Save table"
+          "label": "Save table",
+          "dialog": "Import tabular data"
         },
         {
           "note": "Three months around the smoke, so the days before and after are there to compare."
