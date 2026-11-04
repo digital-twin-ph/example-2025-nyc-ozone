@@ -1,7 +1,7 @@
 {
   "schema": "fieldwork/worked-example-manual/1",
   "example": "urn:fieldwork:example:nyc-asthma-ozone-2016-2025",
-  "intro": "All three workflows read the same daily table, fetched from the authors' Zenodo package when you build them. Start from an empty canvas: Project, then New project.",
+  "intro": "All three workflows read the same daily table. The first fetches it from the authors' Zenodo package; the second reuses that table node, and the third reads the copy already on your device. Start from an empty canvas: Project, then New project.",
   "workflows": [
     {
       "name": "What happened during the June 2023 smoke?",
@@ -228,73 +228,12 @@
           "value": "Ten years of daily visits"
         },
         {
-          "note": "The same table, fetched and set up exactly as in the first workflow."
+          "note": "The same table as the first workflow, with the same settings: reuse it rather than fetch and set it up again."
         },
         {
-          "add": "table_input",
+          "reuse": "table_input",
+          "from": "What happened during the June 2023 smoke?",
           "as": "daily"
-        },
-        {
-          "select": "daily"
-        },
-        {
-          "click": "#open-table",
-          "label": "Import tabular data"
-        },
-        {
-          "click": "#table-remote summary",
-          "label": "Or fetch from a URL"
-        },
-        {
-          "fill": "table-url",
-          "label": "URL of a CSV, Stata file or zip",
-          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"
-        },
-        {
-          "click": "#table-fetch",
-          "label": "Fetch"
-        },
-        {
-          "choose": "table-entry",
-          "label": "File inside the archive",
-          "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
-          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"
-        },
-        {
-          "choose": "table-shape",
-          "label": "Shape of the file",
-          "value": "long",
-          "shown": "Long · one row per observation, one value column"
-        },
-        {
-          "choose": "table-value",
-          "label": "Value column",
-          "value": "count"
-        },
-        {
-          "tick": "table-keys",
-          "label": "Key columns",
-          "values": [
-            "date",
-            "o3",
-            "pm25",
-            "no2",
-            "tmean"
-          ]
-        },
-        {
-          "keyRole": "date",
-          "value": "primary",
-          "shown": "Primary key"
-        },
-        {
-          "fill": "table-unit",
-          "label": "Unit of the value (entered by you)",
-          "value": "visits/day"
-        },
-        {
-          "click": "#table-save",
-          "label": "Save table"
         },
         {
           "add": "table_output",
