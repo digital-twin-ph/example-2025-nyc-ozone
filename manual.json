@@ -86,16 +86,26 @@
           "dialog": "Import tabular data"
         },
         {
-          "tick": "table-keys",
-          "label": "Key columns",
-          "values": [
-            "date",
-            "o3",
-            "pm25",
-            "no2",
-            "tmean"
-          ],
-          "dialog": "Import tabular data"
+          "click": "#table-keys-choose",
+          "label": "Choose key columns…",
+          "dialog": "Import tabular data",
+          "opens": "Key columns"
+        },
+        {
+          "fill": "table-keys-paste",
+          "label": "Columns to keep, pasted or typed",
+          "value": "date, o3, pm25, no2, tmean",
+          "dialog": "Key columns"
+        },
+        {
+          "click": "#table-keys-keep",
+          "label": "Keep these",
+          "dialog": "Key columns"
+        },
+        {
+          "click": "#table-keys-done",
+          "label": "Done",
+          "dialog": "Key columns"
         },
         {
           "keyRole": "date",
@@ -336,23 +346,48 @@
           "dialog": "Import tabular data"
         },
         {
-          "tick": "table-keys",
-          "label": "Key columns",
-          "values": [
-            "date"
-          ],
-          "dialog": "Import tabular data"
+          "click": "#table-keys-choose",
+          "label": "Choose key columns…",
+          "dialog": "Import tabular data",
+          "opens": "Key columns"
         },
         {
-          "tick": "table-values",
-          "label": "Value columns",
-          "values": [
-            "count",
-            "o3",
-            "pm25",
-            "tmean"
-          ],
-          "dialog": "Import tabular data"
+          "fill": "table-keys-paste",
+          "label": "Columns to keep, pasted or typed",
+          "value": "date",
+          "dialog": "Key columns"
+        },
+        {
+          "click": "#table-keys-keep",
+          "label": "Keep these",
+          "dialog": "Key columns"
+        },
+        {
+          "click": "#table-keys-done",
+          "label": "Done",
+          "dialog": "Key columns"
+        },
+        {
+          "click": "#table-values-choose",
+          "label": "Choose value columns…",
+          "dialog": "Import tabular data",
+          "opens": "Value columns"
+        },
+        {
+          "fill": "table-values-paste",
+          "label": "Columns to keep, pasted or typed",
+          "value": "count, o3, pm25, tmean",
+          "dialog": "Value columns"
+        },
+        {
+          "click": "#table-values-keep",
+          "label": "Keep these",
+          "dialog": "Value columns"
+        },
+        {
+          "click": "#table-values-done",
+          "label": "Done",
+          "dialog": "Value columns"
         },
         {
           "fill": "table-measure-key",
