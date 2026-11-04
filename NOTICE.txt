@@ -1,0 +1,19 @@
+Ozone and child asthma emergency visits, New York City, 2016-2025
+==================================================================
+
+Not held here: the daily counts. They are fetched from the authors' Zenodo
+record when the example is opened, and checked by digest.
+
+Source:   Lian D, et al. Data and code for: Ambient ozone and pediatric asthma
+          emergency department visits in New York City. Version 1.0. Zenodo.
+          doi:10.5281/zenodo.22757330
+          The authors license their own materials under CC BY 4.0, and state
+          that the underlying observations "remain subject to each custodian's
+          applicable terms".
+
+Custodian of the counts: New York City Department of Health and Mental
+          Hygiene, EpiQuery. NYC.gov's terms reserve all rights. This
+          repository does not redistribute the counts.
+
+The authors and the custodians are not associated with this example and have
+not endorsed it.
