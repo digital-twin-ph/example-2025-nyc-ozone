@@ -57,6 +57,7 @@ There is no published or preprint paper; these are the authors' archived outputs
 | --- | --- |
 | `fieldwork-project.json.gz` | The Fieldwork project: the workflows and where the table comes from, no counts |
 | `provenance.json` | The fetch: URL, the file inside the package, both digests |
+| `manual.json` | How to build both workflows by hand, step by step. Fieldwork shows it in the Manual tab, and its from-scratch test performs it |
 
 ## References
 
