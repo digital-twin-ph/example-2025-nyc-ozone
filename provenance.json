@@ -1,0 +1,34 @@
+{
+  "schema": "fieldwork/example-provenance/1",
+  "retrieved": "2026-11-03",
+  "title": "Ozone and child asthma ED visits, New York City, 2016-2025",
+  "fetchedAtOpen": {
+    "url": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content",
+    "archive": {
+      "bytes": 8817679,
+      "md5": "ba80a4dbfe2393e505cdb4bfa750b14d",
+      "sha256": "bbba2505056667610f0cec03253a4a9bfcdb5e7f114f8e56eb0ecc2d4736bf88"
+    },
+    "entry": {
+      "path": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
+      "bytes": 2869419,
+      "sha256": "cbd85e59fd719081714c9dfd19522f0371c63dd47b462c404820fbfac4297d29"
+    },
+    "cors": "access-control-allow-origin: * (checked 2026-11-03)"
+  },
+  "licence": {
+    "authorsMaterials": "CC-BY-4.0",
+    "counts": "NYC DOHMH; NYC.gov terms reserve all rights; not redistributed here"
+  },
+  "checks": {
+    "rows": 3653,
+    "from": "2016-01-01",
+    "to": "2025-12-31",
+    "visits": 123265,
+    "authorsResult": "O3 RR 1.061 (1.035-1.088) per 10 ppb, Source_Data/Tables/Main_02.csv"
+  },
+  "limits": [
+    "No published paper; results are the authors' archived outputs.",
+    "Syndromic data are not diagnoses."
+  ]
+}
