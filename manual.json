@@ -7,77 +7,507 @@
       "name": "What happened during the June 2023 smoke?",
       "question": "Two weeks of daily child asthma visits, a bar a day, with ozone and PM2.5 beside them.",
       "steps": [
-        {"click": "#new-project", "label": "New project"},
-        {"fill": "project-name-input", "label": "Name", "value": "Ozone and child asthma emergency visits, New York City"},
-        {"fill": "project-subject-input", "label": "Subject", "value": "Daily counts, ages 5 to 17, 2016 to 2025"},
-        {"click": "#project-create", "label": "Create project"},
-        {"fill": "workflow-name-edit", "view": "project", "label": "This workflow’s name — the question it answers", "value": "What happened during the June 2023 smoke?"},
-        {"note": "The table: the authors' analysis file, fetched from where it is published. The project keeps where it came from, not the rows."},
-        {"add": "table_input", "as": "daily"},
-        {"select": "daily"},
-        {"click": "#open-table", "label": "Import tabular data"},
-        {"click": "#table-remote summary", "label": "Or fetch from a URL"},
-        {"fill": "table-url", "label": "URL of a CSV, Stata file or zip", "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"},
-        {"click": "#table-fetch", "label": "Fetch"},
-        {"choose": "table-entry", "label": "File inside the archive", "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv", "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"},
-        {"choose": "table-shape", "label": "Shape of the file", "value": "long", "shown": "Long · one row per observation, one value column"},
-        {"choose": "table-value", "label": "Value column", "value": "count"},
-        {"tick": "table-keys", "label": "Key columns", "values": ["date", "o3", "pm25", "no2", "tmean"]},
-        {"keyRole": "date", "value": "primary", "shown": "Primary key"},
-        {"note": "The unit is the one the authors' data dictionary gives for count."},
-        {"fill": "table-unit", "label": "Unit of the value (entered by you)", "value": "visits/day"},
-        {"click": "#table-save", "label": "Save table"},
-        {"note": "The smoke days: two dates, both kept."},
-        {"add": "select_rows", "as": "days"},
-        {"connect": {"from": "daily", "to": "days", "port": "records"}},
-        {"select": "days"},
-        {"choose": "select-key", "label": "Key column to choose by", "value": "date"},
-        {"choose": "select-mode", "label": "Keep", "value": "range", "shown": "A range of dates"},
-        {"fill": "select-from", "label": "From", "value": "2023-06-01"},
-        {"fill": "select-to", "label": "To", "value": "2023-06-14"},
-        {"add": "chart_output", "as": "chart"},
-        {"connect": {"from": "days", "to": "chart", "port": "records"}},
-        {"select": "chart"},
-        {"fill": "output-label", "label": "Results tab name", "value": "Asthma ED visits, ages 5 to 17, 1 to 14 June 2023"},
-        {"fill": "chart-title", "label": "Chart title", "value": "Child asthma emergency department visits, New York City, 1 to 14 June 2023"},
-        {"fill": "chart-subtitle", "label": "Subtitle / context", "value": "Citywide asthma-syndrome visits, ages 5 to 17. 7 June had the highest PM2.5 of the ten years, 190 µg/m³, and the most visits of these two weeks, 49."},
-        {"fill": "chart-x-axis", "label": "Horizontal axis label", "value": "Date"},
-        {"fill": "chart-y-axis", "label": "Vertical axis label", "value": "Emergency department visits (visits/day)"},
-        {"fill": "chart-source-note", "label": "Source / method note", "value": "NYC DOHMH EpiQuery counts, from the authors' reproducibility package (Zenodo 10.5281/zenodo.22757330), analysis_master_raw_rebuild.csv."},
-        {"add": "table_output", "as": "shown"},
-        {"connect": {"from": "days", "to": "shown", "port": "table"}},
-        {"select": "shown"},
-        {"fill": "table-label", "label": "Results tab name", "value": "The smoke days, with ozone and PM2.5"},
-        {"run": true},
-        {"see": "14 bars, 1 to 14 June 2023, the tallest on 2023-06-07 with 49 visits", "check": "2023-06-07"}
+        {
+          "click": "#new-project",
+          "label": "New project"
+        },
+        {
+          "fill": "project-name-input",
+          "label": "Name",
+          "value": "Ozone and child asthma emergency visits, New York City"
+        },
+        {
+          "fill": "project-subject-input",
+          "label": "Subject",
+          "value": "Daily counts, ages 5 to 17, 2016 to 2025"
+        },
+        {
+          "click": "#project-create",
+          "label": "Create project"
+        },
+        {
+          "fill": "workflow-name-edit",
+          "view": "project",
+          "label": "This workflow’s name — the question it answers",
+          "value": "What happened during the June 2023 smoke?"
+        },
+        {
+          "note": "The table: the authors' analysis file, fetched from where it is published. The project keeps where it came from, not the rows."
+        },
+        {
+          "add": "table_input",
+          "as": "daily"
+        },
+        {
+          "select": "daily"
+        },
+        {
+          "click": "#open-table",
+          "label": "Import tabular data"
+        },
+        {
+          "click": "#table-remote summary",
+          "label": "Or fetch from a URL"
+        },
+        {
+          "fill": "table-url",
+          "label": "URL of a CSV, Stata file or zip",
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"
+        },
+        {
+          "click": "#table-fetch",
+          "label": "Fetch"
+        },
+        {
+          "choose": "table-entry",
+          "label": "File inside the archive",
+          "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
+          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"
+        },
+        {
+          "choose": "table-shape",
+          "label": "Shape of the file",
+          "value": "long",
+          "shown": "Long · one row per observation, one value column"
+        },
+        {
+          "choose": "table-value",
+          "label": "Value column",
+          "value": "count"
+        },
+        {
+          "tick": "table-keys",
+          "label": "Key columns",
+          "values": [
+            "date",
+            "o3",
+            "pm25",
+            "no2",
+            "tmean"
+          ]
+        },
+        {
+          "keyRole": "date",
+          "value": "primary",
+          "shown": "Primary key"
+        },
+        {
+          "note": "The unit is the one the authors' data dictionary gives for count."
+        },
+        {
+          "fill": "table-unit",
+          "label": "Unit of the value (entered by you)",
+          "value": "visits/day"
+        },
+        {
+          "click": "#table-save",
+          "label": "Save table"
+        },
+        {
+          "note": "The smoke days: two dates, both kept."
+        },
+        {
+          "add": "select_rows",
+          "as": "days"
+        },
+        {
+          "connect": {
+            "from": "daily",
+            "to": "days",
+            "port": "records"
+          }
+        },
+        {
+          "select": "days"
+        },
+        {
+          "choose": "select-key",
+          "label": "Key column to choose by",
+          "value": "date"
+        },
+        {
+          "choose": "select-mode",
+          "label": "Keep",
+          "value": "range",
+          "shown": "A range of dates"
+        },
+        {
+          "fill": "select-from",
+          "label": "From",
+          "value": "2023-06-01"
+        },
+        {
+          "fill": "select-to",
+          "label": "To",
+          "value": "2023-06-14"
+        },
+        {
+          "add": "chart_output",
+          "as": "chart"
+        },
+        {
+          "connect": {
+            "from": "days",
+            "to": "chart",
+            "port": "records"
+          }
+        },
+        {
+          "select": "chart"
+        },
+        {
+          "fill": "output-label",
+          "label": "Results tab name",
+          "value": "Asthma ED visits, ages 5 to 17, 1 to 14 June 2023"
+        },
+        {
+          "fill": "chart-title",
+          "label": "Chart title",
+          "value": "Child asthma emergency department visits, New York City, 1 to 14 June 2023"
+        },
+        {
+          "fill": "chart-subtitle",
+          "label": "Subtitle / context",
+          "value": "Citywide asthma-syndrome visits, ages 5 to 17. 7 June had the highest PM2.5 of the ten years, 190 µg/m³, and the most visits of these two weeks, 49."
+        },
+        {
+          "fill": "chart-x-axis",
+          "label": "Horizontal axis label",
+          "value": "Date"
+        },
+        {
+          "fill": "chart-y-axis",
+          "label": "Vertical axis label",
+          "value": "Emergency department visits (visits/day)"
+        },
+        {
+          "fill": "chart-source-note",
+          "label": "Source / method note",
+          "value": "NYC DOHMH EpiQuery counts, from the authors' reproducibility package (Zenodo 10.5281/zenodo.22757330), analysis_master_raw_rebuild.csv."
+        },
+        {
+          "add": "table_output",
+          "as": "shown"
+        },
+        {
+          "connect": {
+            "from": "days",
+            "to": "shown",
+            "port": "table"
+          }
+        },
+        {
+          "select": "shown"
+        },
+        {
+          "fill": "table-label",
+          "label": "Results tab name",
+          "value": "The smoke days, with ozone and PM2.5"
+        },
+        {
+          "run": true
+        },
+        {
+          "see": "14 bars, 1 to 14 June 2023, the tallest on 2023-06-07 with 49 visits",
+          "check": "2023-06-07"
+        }
       ]
     },
     {
       "name": "Ten years of daily visits",
       "question": "Every day from 2016 to 2025, as a table to read through.",
       "steps": [
-        {"click": "#add-workflow", "label": "Add workflow"},
-        {"fill": "workflow-name-edit", "view": "project", "label": "This workflow’s name — the question it answers", "value": "Ten years of daily visits"},
-        {"note": "The same table, fetched and set up exactly as in the first workflow."},
-        {"add": "table_input", "as": "daily"},
-        {"select": "daily"},
-        {"click": "#open-table", "label": "Import tabular data"},
-        {"click": "#table-remote summary", "label": "Or fetch from a URL"},
-        {"fill": "table-url", "label": "URL of a CSV, Stata file or zip", "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"},
-        {"click": "#table-fetch", "label": "Fetch"},
-        {"choose": "table-entry", "label": "File inside the archive", "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv", "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"},
-        {"choose": "table-shape", "label": "Shape of the file", "value": "long", "shown": "Long · one row per observation, one value column"},
-        {"choose": "table-value", "label": "Value column", "value": "count"},
-        {"tick": "table-keys", "label": "Key columns", "values": ["date", "o3", "pm25", "no2", "tmean"]},
-        {"keyRole": "date", "value": "primary", "shown": "Primary key"},
-        {"fill": "table-unit", "label": "Unit of the value (entered by you)", "value": "visits/day"},
-        {"click": "#table-save", "label": "Save table"},
-        {"add": "table_output", "as": "shown"},
-        {"connect": {"from": "daily", "to": "shown", "port": "table"}},
-        {"select": "shown"},
-        {"fill": "table-label", "label": "Results tab name", "value": "Daily asthma ED visits and exposures, 2016 to 2025"},
-        {"run": true},
-        {"see": "3,653 rows, one a day", "check": "3,653"}
+        {
+          "click": "#add-workflow",
+          "label": "Add workflow"
+        },
+        {
+          "fill": "workflow-name-edit",
+          "view": "project",
+          "label": "This workflow’s name — the question it answers",
+          "value": "Ten years of daily visits"
+        },
+        {
+          "note": "The same table, fetched and set up exactly as in the first workflow."
+        },
+        {
+          "add": "table_input",
+          "as": "daily"
+        },
+        {
+          "select": "daily"
+        },
+        {
+          "click": "#open-table",
+          "label": "Import tabular data"
+        },
+        {
+          "click": "#table-remote summary",
+          "label": "Or fetch from a URL"
+        },
+        {
+          "fill": "table-url",
+          "label": "URL of a CSV, Stata file or zip",
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"
+        },
+        {
+          "click": "#table-fetch",
+          "label": "Fetch"
+        },
+        {
+          "choose": "table-entry",
+          "label": "File inside the archive",
+          "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
+          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"
+        },
+        {
+          "choose": "table-shape",
+          "label": "Shape of the file",
+          "value": "long",
+          "shown": "Long · one row per observation, one value column"
+        },
+        {
+          "choose": "table-value",
+          "label": "Value column",
+          "value": "count"
+        },
+        {
+          "tick": "table-keys",
+          "label": "Key columns",
+          "values": [
+            "date",
+            "o3",
+            "pm25",
+            "no2",
+            "tmean"
+          ]
+        },
+        {
+          "keyRole": "date",
+          "value": "primary",
+          "shown": "Primary key"
+        },
+        {
+          "fill": "table-unit",
+          "label": "Unit of the value (entered by you)",
+          "value": "visits/day"
+        },
+        {
+          "click": "#table-save",
+          "label": "Save table"
+        },
+        {
+          "add": "table_output",
+          "as": "shown"
+        },
+        {
+          "connect": {
+            "from": "daily",
+            "to": "shown",
+            "port": "table"
+          }
+        },
+        {
+          "select": "shown"
+        },
+        {
+          "fill": "table-label",
+          "label": "Results tab name",
+          "value": "Daily asthma ED visits and exposures, 2016 to 2025"
+        },
+        {
+          "run": true
+        },
+        {
+          "see": "3,653 rows, one a day",
+          "check": "3,653"
+        }
+      ]
+    },
+    {
+      "name": "Did visits move with the air?",
+      "question": "Daily visits, ozone, PM2.5 and temperature from May to July 2023, one panel each on one date axis, the smoke days shaded.",
+      "steps": [
+        {
+          "click": "#add-workflow",
+          "label": "Add workflow"
+        },
+        {
+          "fill": "workflow-name-edit",
+          "view": "project",
+          "label": "This workflow’s name — the question it answers",
+          "value": "Did visits move with the air?"
+        },
+        {
+          "note": "The same file, read wide this time: each variable becomes rows of one variable column, so each can have its own panel."
+        },
+        {
+          "add": "table_input",
+          "as": "daily"
+        },
+        {
+          "select": "daily"
+        },
+        {
+          "click": "#open-table",
+          "label": "Import tabular data"
+        },
+        {
+          "click": "#table-remote summary",
+          "label": "Or fetch from a URL"
+        },
+        {
+          "fill": "table-url",
+          "label": "URL of a CSV, Stata file or zip",
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content"
+        },
+        {
+          "click": "#table-fetch",
+          "label": "Fetch"
+        },
+        {
+          "choose": "table-entry",
+          "label": "File inside the archive",
+          "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
+          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv"
+        },
+        {
+          "choose": "table-shape",
+          "label": "Shape of the file",
+          "value": "wide",
+          "shown": "Wide · one row per subject, a column per variable"
+        },
+        {
+          "tick": "table-keys",
+          "label": "Key columns",
+          "values": [
+            "date"
+          ]
+        },
+        {
+          "tick": "table-values",
+          "label": "Value columns",
+          "values": [
+            "count",
+            "o3",
+            "pm25",
+            "tmean"
+          ]
+        },
+        {
+          "fill": "table-measure-key",
+          "label": "Name for the column holding the variable names",
+          "value": "variable"
+        },
+        {
+          "click": "#table-save",
+          "label": "Save table"
+        },
+        {
+          "note": "Three months around the smoke, so the days before and after are there to compare."
+        },
+        {
+          "add": "select_rows",
+          "as": "months"
+        },
+        {
+          "connect": {
+            "from": "daily",
+            "to": "months",
+            "port": "records"
+          }
+        },
+        {
+          "select": "months"
+        },
+        {
+          "choose": "select-key",
+          "label": "Key column to choose by",
+          "value": "date"
+        },
+        {
+          "choose": "select-mode",
+          "label": "Keep",
+          "value": "range",
+          "shown": "A range of dates"
+        },
+        {
+          "fill": "select-from",
+          "label": "From",
+          "value": "2023-05-01"
+        },
+        {
+          "fill": "select-to",
+          "label": "To",
+          "value": "2023-07-31"
+        },
+        {
+          "add": "chart_output",
+          "as": "chart"
+        },
+        {
+          "connect": {
+            "from": "months",
+            "to": "chart",
+            "port": "records"
+          }
+        },
+        {
+          "select": "chart"
+        },
+        {
+          "fill": "output-label",
+          "label": "Results tab name",
+          "value": "Visits and the air, May to July 2023"
+        },
+        {
+          "choose": "chart-panels-by",
+          "label": "One panel per",
+          "value": "variable"
+        },
+        {
+          "choose": "chart-panel-mark-count",
+          "label": "Mark for count",
+          "value": "bar",
+          "shown": "Bars"
+        },
+        {
+          "fill": "chart-shade-from",
+          "label": "From",
+          "value": "2023-06-01"
+        },
+        {
+          "fill": "chart-shade-to",
+          "label": "To",
+          "value": "2023-06-14"
+        },
+        {
+          "fill": "chart-title",
+          "label": "Chart title",
+          "value": "Child asthma visits, ozone, PM2.5 and temperature, New York City, May to July 2023"
+        },
+        {
+          "fill": "chart-subtitle",
+          "label": "Subtitle / context",
+          "value": "One panel per variable, each on its own scale; 1 to 14 June shaded. count is visits/day, o3 ppb, pm25 µg/m³, tmean °C, as the authors' data dictionary gives them. Aligned panels show timing, not effect."
+        },
+        {
+          "fill": "chart-x-axis",
+          "label": "Horizontal axis label",
+          "value": "Date"
+        },
+        {
+          "fill": "chart-source-note",
+          "label": "Source / method note",
+          "value": "NYC DOHMH EpiQuery counts and the authors' exposure series, from their reproducibility package (Zenodo 10.5281/zenodo.22757330), analysis_master_raw_rebuild.csv."
+        },
+        {
+          "run": true
+        },
+        {
+          "see": "four panels on one date axis, the PM2.5 peak and the visits peak both on 7 June",
+          "check": "one panel per variable"
+        }
       ]
     }
   ]
