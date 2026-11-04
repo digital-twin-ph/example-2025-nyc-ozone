@@ -9,7 +9,17 @@ surveillance, through EpiQuery, and NYC.gov reserves all rights to them. Fieldwo
 Zenodo when the example is opened, checks it by digest, and keeps the table on that device. This repository holds the
 workflows and the description of where the table comes from.
 
-**Not built yet.** The workflows wait for a table fetched at open (experiment 170) and for regression (experiment 167).
+## The questions
+
+| Workflow | Nodes | What it shows |
+| --- | --- | --- |
+| What happened during the June 2023 smoke? | 4 | Daily visits, 1 to 14 June 2023, as bars, and the same days with ozone and PM2.5 |
+| Ten years of daily visits | 2 | All 3,653 days as a table |
+
+**Opening it:** the table node says its rows are not kept in the project. Choose **Fetch the table**: Fieldwork
+downloads the authors' package from Zenodo, about 9 MB, checks both digests and reads the daily table. Then run.
+
+The authors' ozone result needs regression (experiment 167), which Fieldwork does not have yet.
 
 ## The data
 
@@ -40,6 +50,13 @@ There is no published or preprint paper; these are the authors' archived outputs
 
 - That the city's terms permit more than fetching and analysing the authors' openly published package locally.
 - That Zenodo will keep the record, or keep serving it to browsers.
+
+## Files
+
+| File | What it holds |
+| --- | --- |
+| `fieldwork-project.json.gz` | The Fieldwork project: the workflows and where the table comes from, no counts |
+| `provenance.json` | The fetch: URL, the file inside the package, both digests |
 
 ## References
 
