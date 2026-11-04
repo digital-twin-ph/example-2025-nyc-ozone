@@ -70,7 +70,6 @@
           "choose": "table-entry",
           "label": "File inside the archive",
           "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
-          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv",
           "dialog": "Import tabular data"
         },
         {
@@ -327,7 +326,6 @@
           "choose": "table-entry",
           "label": "File inside the archive",
           "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
-          "shown": "Data/Core/Derived/analysis_master_raw_rebuild.csv",
           "dialog": "Import tabular data"
         },
         {
