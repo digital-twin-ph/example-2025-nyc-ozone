@@ -1,7 +1,7 @@
 {
   "schema": "fieldwork/worked-example-manual/1",
   "example": "urn:fieldwork:example:nyc-asthma-ozone-2016-2025",
-  "intro": "All three workflows read the same daily table. The first fetches it from the authors' Zenodo package; the second reuses that table node, and the third reads the copy already on your device. Start from an empty canvas: Project, then New project.",
+  "intro": "All four workflows read the same daily table. The first fetches it from the authors' Zenodo package; the second reuses that table node, and the third reads the copy already on your device. Start from an empty canvas: Project, then New project.",
   "workflows": [
     {
       "name": "What happened during the June 2023 smoke?",
@@ -504,6 +504,220 @@
         {
           "see": "four panels on one date axis; on 7 June the PM2.5 peak and the most visits of the shaded weeks, though not of the three months",
           "check": "one panel per variable"
+        }
+      ]
+    },
+    {
+      "name": "How much does ozone raise visits?",
+      "question": "The authors' model: daily visits on ozone over the previous three days, adjusted for PM2.5, NO2, temperature and holidays, within year-month-weekday strata. Their result: 1.061 (1.035-1.088) per 10 ppb.",
+      "steps": [
+        {
+          "click": "#add-workflow",
+          "label": "Add workflow"
+        },
+        {
+          "fill": "workflow-name-edit",
+          "view": "project",
+          "label": "This workflow’s name — the question it answers",
+          "value": "How much does ozone raise visits?"
+        },
+        {
+          "note": "The same file, with the columns the authors' model uses: ozone, PM2.5 and NO2 averaged over the day and the two before, per 10 units; temperature averaged over four days; holidays; and the year-month-weekday stratum."
+        },
+        {
+          "add": "table_input",
+          "as": "daily"
+        },
+        {
+          "select": "daily"
+        },
+        {
+          "click": "#open-table",
+          "label": "Import tabular data",
+          "opens": "Import tabular data"
+        },
+        {
+          "click": "#table-remote summary",
+          "label": "Or fetch from a URL",
+          "dialog": "Import tabular data"
+        },
+        {
+          "fill": "table-url",
+          "label": "URL of a CSV, Stata file or zip",
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content",
+          "dialog": "Import tabular data"
+        },
+        {
+          "click": "#table-fetch",
+          "label": "Fetch",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-entry",
+          "label": "File inside the archive",
+          "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/analysis_master_raw_rebuild.csv",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-shape",
+          "label": "Shape of the file",
+          "value": "long",
+          "shown": "Long · one row per observation, one value column",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-value",
+          "label": "Value column",
+          "value": "count",
+          "dialog": "Import tabular data"
+        },
+        {
+          "click": "#table-keys-choose",
+          "label": "Choose key columns…",
+          "dialog": "Import tabular data",
+          "opens": "Key columns"
+        },
+        {
+          "fill": "table-keys-paste",
+          "label": "Columns to keep, pasted or typed",
+          "value": "date, o3_lag02_10, pm25_lag02_10, no2_lag02_10, tmean_lag03, holiday, stratum",
+          "dialog": "Key columns"
+        },
+        {
+          "click": "#table-keys-keep",
+          "label": "Keep these",
+          "dialog": "Key columns"
+        },
+        {
+          "click": "#table-keys-done",
+          "label": "Done",
+          "dialog": "Key columns"
+        },
+        {
+          "keyRole": "date",
+          "value": "primary",
+          "shown": "Primary key",
+          "dialog": "Import tabular data"
+        },
+        {
+          "fill": "table-unit",
+          "label": "Unit of the value (entered by you)",
+          "value": "visits/day",
+          "dialog": "Import tabular data"
+        },
+        {
+          "click": "#table-save",
+          "label": "Save table",
+          "dialog": "Import tabular data"
+        },
+        {
+          "note": "The model. Each pollutant and holidays are numbers; temperature is a curve, as a cubic spline with four degrees of freedom; the strata are fixed effects."
+        },
+        {
+          "add": "regression",
+          "as": "model"
+        },
+        {
+          "connect": {
+            "from": "daily",
+            "to": "model",
+            "port": "records"
+          }
+        },
+        {
+          "select": "model"
+        },
+        {
+          "choose": "reg-family",
+          "label": "Model",
+          "value": "poisson",
+          "shown": "Poisson regression · rate ratios"
+        },
+        {
+          "choose": "reg-outcome",
+          "label": "Outcome",
+          "value": "count"
+        },
+        {
+          "choose": "reg-exposure",
+          "label": "Exposure",
+          "value": "o3_lag02_10"
+        },
+        {
+          "choose": "reg-adjust-add",
+          "label": "Add a variable",
+          "value": "pm25_lag02_10"
+        },
+        {
+          "choose": "reg-adjust-add",
+          "label": "Add a variable",
+          "value": "no2_lag02_10"
+        },
+        {
+          "choose": "reg-adjust-add",
+          "label": "Add a variable",
+          "value": "tmean_lag03"
+        },
+        {
+          "choose": "reg-kind-tmean_lag03",
+          "label": "tmean_lag03 as",
+          "value": "spline",
+          "shown": "Spline, 4 df"
+        },
+        {
+          "choose": "reg-adjust-add",
+          "label": "Add a variable",
+          "value": "holiday"
+        },
+        {
+          "choose": "reg-strata",
+          "label": "Strata, as fixed effects",
+          "value": "stratum"
+        },
+        {
+          "note": "Visits on one day are correlated with visits on the next, so the authors' intervals allow for it: HAC standard errors over 14 days, with rows in date order."
+        },
+        {
+          "choose": "reg-errors",
+          "label": "Intervals",
+          "value": "hac",
+          "shown": "Wald, HAC (Newey-West) for serial correlation"
+        },
+        {
+          "fill": "reg-hac-lag",
+          "label": "Lags",
+          "value": "14"
+        },
+        {
+          "choose": "reg-order",
+          "label": "Rows in the order of",
+          "value": "date"
+        },
+        {
+          "add": "table_output",
+          "as": "shown"
+        },
+        {
+          "connect": {
+            "from": "model",
+            "to": "shown",
+            "port": "table"
+          }
+        },
+        {
+          "select": "shown"
+        },
+        {
+          "fill": "table-label",
+          "label": "Results tab name",
+          "value": "Visits per 10 ppb of ozone, adjusted"
+        },
+        {
+          "run": true
+        },
+        {
+          "see": "a rate ratio of 1.0609 for o3_lag02_10, 1.0348 to 1.0877, as the authors report 1.061 (1.035 to 1.088)",
+          "check": "1.0609164"
         }
       ]
     }

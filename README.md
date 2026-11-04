@@ -16,11 +16,12 @@ workflows and the description of where the table comes from.
 | What happened during the June 2023 smoke? | 4 | Daily visits, 1 to 14 June 2023, as bars, and the same days with ozone and PM2.5 |
 | Ten years of daily visits | 2 | All 3,653 days as a table |
 | Did visits move with the air? | 3 | Visits, ozone, PM2.5 and temperature, May to July 2023, one panel each on one date axis, 1 to 14 June shaded. Timing, not effect |
+| How much does ozone raise visits? | 3 | The authors' model: Poisson regression with 840 year-month-weekday strata, a temperature spline and HAC intervals. 1.061 (1.035–1.088) per 10 ppb, as published |
 
 **Opening it:** the table node says its rows are not kept in the project. Choose **Fetch the table**: Fieldwork
 downloads the authors' package from Zenodo, about 9 MB, checks both digests and reads the daily table. Then run.
 
-The authors' ozone result needs regression (experiment 167), which Fieldwork does not have yet.
+The fourth workflow reproduces the authors' ozone result with Fieldwork's Regression widget (experiment 167): coefficient and HAC standard error equal to their archived R result to 12 significant figures.
 
 ## The data
 
