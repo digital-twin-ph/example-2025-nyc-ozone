@@ -505,7 +505,7 @@
           "run": true
         },
         {
-          "see": "four panels on one date axis, the PM2.5 peak and the visits peak both on 7 June",
+          "see": "four panels on one date axis; on 7 June the PM2.5 peak and the most visits of the shaded weeks, though not of the three months",
           "check": "one panel per variable"
         }
       ]
