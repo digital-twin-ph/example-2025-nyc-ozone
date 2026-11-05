@@ -17,9 +17,12 @@ workflows and the description of where the table comes from.
 | Ten years of daily visits | 2 | All 3,653 days as a table |
 | Did visits move with the air? | 3 | Visits, ozone, PM2.5 and temperature, May to July 2023, one panel each on one date axis, 1 to 14 June shaded. Timing, not effect |
 | How much does ozone raise visits? | 3 | The authors' model: Poisson regression with 840 year-month-weekday strata, a temperature spline and HAC intervals. 1.061 (1.035–1.088) per 10 ppb, as published |
+| Where was the air measured? | 5 | The study area: the five boroughs, with the six ozone monitors whose daily readings the study averages. The map opens the write-up, under Introduction |
 
 **Opening it:** the table node says its rows are not kept in the project. Choose **Fetch the table**: Fieldwork
 downloads the authors' package from Zenodo, about 9 MB, checks both digests and reads the daily table. Then run.
+
+**The fifth workflow is the study area.** The package names no emergency department: the outcome is one citywide daily count. What it does place is the air. Each ozone monitor's position is on every row of the authors' site-day file, so Point data reads the monitors from that table once it is totalled to one row per site, taking x as the longitude and y as the latitude, as geopandas' `points_from_xy` does. The boroughs are New York State's five counties from geoBoundaries (US Census TIGER, 2018, public domain), chosen by name; Kings and Richmond are listed with where they lie, because other states have counties of those names.
 
 The fourth workflow reproduces the authors' ozone result with Fieldwork's Regression widget (experiment 167): coefficient and HAC standard error equal to their archived R result to 12 significant figures.
 
@@ -57,9 +60,9 @@ There is no published or preprint paper; these are the authors' archived outputs
 
 | File | What it holds |
 | --- | --- |
-| `fieldwork-project.json.gz` | The Fieldwork project: the workflows and where the table comes from, no counts |
+| `fieldwork-project.json.gz` | The Fieldwork project: the workflows, where the tables come from and the five borough outlines; no counts and no monitor readings |
 | `provenance.json` | The fetch: URL, the file inside the package, both digests |
-| `manual.json` | How to build both workflows by hand, step by step. Fieldwork shows it in the Manual tab, and its from-scratch test performs it |
+| `manual.json` | How to build all five workflows by hand, step by step. Fieldwork shows it in the Manual tab, and its from-scratch test performs it |
 
 ## References
 
@@ -68,3 +71,5 @@ There is no published or preprint paper; these are the authors' archived outputs
   [doi:10.5281/zenodo.22757330](https://doi.org/10.5281/zenodo.22757330). Authors' materials CC BY 4.0.
 - New York City Department of Health and Mental Hygiene. EpiQuery – Syndromic Surveillance.
   https://nyc.gov/health/epiquery
+- US Environmental Protection Agency. Air Quality System, daily ozone (parameter 44201), as the authors' package carries it; custodian named in the package's `Metadata/RAW_SOURCE_FILE_MANIFEST.csv`.
+- Runfola D, et al. geoBoundaries: A global database of political administrative boundaries. PLoS ONE 2020;15(4):e0231866. [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866). USA ADM2, release 9469f09, from US Census Bureau MAF/TIGER; public domain.

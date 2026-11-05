@@ -15,5 +15,13 @@ Custodian of the counts: New York City Department of Health and Mental
           Hygiene, EpiQuery. NYC.gov's terms reserve all rights. This
           repository does not redistribute the counts.
 
+Held here: the outlines of New York City's five boroughs, from geoBoundaries
+          USA ADM2 (release 9469f09), drawn by the US Census Bureau,
+          MAF/TIGER Database. Public domain.
+
+Not held here: the ozone monitors' readings and positions. They are read
+          from the same Zenodo package; the package names US EPA AQS as
+          their custodian.
+
 The authors and the custodians are not associated with this example and have
 not endorsed it.

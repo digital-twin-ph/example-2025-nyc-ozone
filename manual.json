@@ -1,7 +1,7 @@
 {
   "schema": "fieldwork/worked-example-manual/1",
   "example": "urn:fieldwork:example:nyc-asthma-ozone-2016-2025",
-  "intro": "All four workflows read the same daily table. The first fetches it from the authors' Zenodo package; the second reuses that table node, and the third reads the copy already on your device. Start from an empty canvas: Project, then New project.",
+  "intro": "The first four workflows read the same daily table. The first fetches it from the authors' Zenodo package; the second reuses that table node, and the third and fourth read the copy already on your device. The fifth reads the ozone monitors' site-day file from the same package, and the boroughs from geoBoundaries. Start from an empty canvas: Project, then New project.",
   "workflows": [
     {
       "name": "What happened during the June 2023 smoke?",
@@ -718,6 +718,255 @@
         {
           "see": "a rate ratio of 1.0609 for o3_lag02_10, 1.0348 to 1.0877, as the authors report 1.061 (1.035 to 1.088)",
           "check": "1.0609164"
+        }
+      ]
+    },
+    {
+      "name": "Where was the air measured?",
+      "question": "New York City's five boroughs and the six monitors whose daily ozone readings the study averages.",
+      "steps": [
+        {
+          "click": "#add-workflow",
+          "label": "Add workflow"
+        },
+        {
+          "fill": "workflow-name-edit",
+          "view": "project",
+          "label": "This workflow’s name — the question it answers",
+          "value": "Where was the air measured?"
+        },
+        {
+          "note": "The study area: New York City's five boroughs, which are counties, from geoBoundaries (US Census TIGER, public domain). US county names repeat across states, so a repeated name is listed with where it lies."
+        },
+        {
+          "add": "study_area",
+          "as": "city"
+        },
+        {
+          "select": "city"
+        },
+        {
+          "click": "#edit-study-area",
+          "label": "Select area on map",
+          "opens": "Choose your study area"
+        },
+        {
+          "click": "#area-boundary-source summary",
+          "label": "Use an administrative boundary",
+          "dialog": "Choose your study area"
+        },
+        {
+          "fill": "area-iso",
+          "label": "Country",
+          "value": "United States of America",
+          "dialog": "Choose your study area"
+        },
+        {
+          "note": "Level stays at ADM2, the counties."
+        },
+        {
+          "click": "#area-boundary-check",
+          "label": "Check this level",
+          "dialog": "Choose your study area"
+        },
+        {
+          "pick": "area-boundary-pick",
+          "label": "Units",
+          "values": [
+            "Bronx",
+            "Kings · 40.65° N, 73.96° W",
+            "New York",
+            "Queens",
+            "Richmond · 40.58° N, 74.17° W"
+          ],
+          "dialog": "Choose your study area"
+        },
+        {
+          "click": "#area-boundary-use",
+          "label": "Use the selected units",
+          "dialog": "Choose your study area"
+        },
+        {
+          "click": "#area-apply",
+          "label": "Apply study area",
+          "dialog": "Choose your study area"
+        },
+        {
+          "note": "The ozone monitors: the authors' site-day file carries each monitor's position on every day it reported. The package is already on this device from the first workflow."
+        },
+        {
+          "add": "table_input",
+          "as": "o3days"
+        },
+        {
+          "select": "o3days"
+        },
+        {
+          "click": "#open-table",
+          "label": "Import tabular data",
+          "opens": "Import tabular data"
+        },
+        {
+          "click": "#table-remote summary",
+          "label": "Or fetch from a URL",
+          "dialog": "Import tabular data"
+        },
+        {
+          "fill": "table-url",
+          "label": "URL of a CSV, Stata file or zip",
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content",
+          "dialog": "Import tabular data"
+        },
+        {
+          "click": "#table-fetch",
+          "label": "Fetch",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-entry",
+          "label": "File inside the archive",
+          "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/o3_site_day_raw_rebuild.csv",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-shape",
+          "label": "Shape of the file",
+          "value": "long",
+          "shown": "Long · one row per observation, one value column",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-value",
+          "label": "Value column",
+          "value": "value",
+          "dialog": "Import tabular data"
+        },
+        {
+          "tick": "table-keys",
+          "label": "Key columns",
+          "values": [
+            "date",
+            "site",
+            "Latitude",
+            "Longitude"
+          ],
+          "dialog": "Import tabular data"
+        },
+        {
+          "fill": "table-unit",
+          "label": "Unit of the value (entered by you)",
+          "value": "ppb",
+          "dialog": "Import tabular data"
+        },
+        {
+          "click": "#table-save",
+          "label": "Save table",
+          "dialog": "Import tabular data"
+        },
+        {
+          "note": "One row per monitor: total within the site and its position, leaving out the date."
+        },
+        {
+          "add": "group_table",
+          "as": "sites"
+        },
+        {
+          "connect": {
+            "from": "o3days",
+            "to": "sites",
+            "port": "records"
+          }
+        },
+        {
+          "select": "sites"
+        },
+        {
+          "tick": "group-keep",
+          "label": "Key columns to keep",
+          "values": [
+            "site",
+            "Latitude",
+            "Longitude"
+          ]
+        },
+        {
+          "note": "Each monitor as a point: x is the longitude and y the latitude, as geopandas' points_from_xy reads them."
+        },
+        {
+          "add": "point_input",
+          "as": "monitors"
+        },
+        {
+          "connect": {
+            "from": "sites",
+            "to": "monitors",
+            "port": "records"
+          }
+        },
+        {
+          "select": "monitors"
+        },
+        {
+          "fill": "source-label",
+          "label": "Source label",
+          "value": "Ozone monitors"
+        },
+        {
+          "choose": "from-table-x",
+          "label": "x (longitude)",
+          "value": "Longitude"
+        },
+        {
+          "choose": "from-table-y",
+          "label": "y (latitude)",
+          "value": "Latitude"
+        },
+        {
+          "choose": "from-table-id",
+          "label": "Record ID",
+          "value": "site"
+        },
+        {
+          "choose": "from-table-name",
+          "label": "Label",
+          "value": "site"
+        },
+        {
+          "note": "The map opens the write-up: it goes under Introduction rather than Results."
+        },
+        {
+          "add": "map_output",
+          "as": "map"
+        },
+        {
+          "select": "map"
+        },
+        {
+          "choose": "map-add-layer",
+          "label": "Add a layer",
+          "value": "My study area · area"
+        },
+        {
+          "choose": "map-add-layer",
+          "label": "Add a layer",
+          "value": "Ozone monitors · points"
+        },
+        {
+          "fill": "map-label",
+          "label": "Results tab name",
+          "value": "New York City and its ozone monitors"
+        },
+        {
+          "choose": "output-section",
+          "label": "In the write-up, under",
+          "value": "Introduction"
+        },
+        {
+          "run": true
+        },
+        {
+          "see": "the five boroughs and six ozone monitors, and in Notes the map's note under Introduction",
+          "check": "6"
         }
       ]
     }
