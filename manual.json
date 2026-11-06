@@ -969,6 +969,418 @@
           "check": "6"
         }
       ]
+    },
+    {
+      "name": "Did the satellite see the city’s NO₂?",
+      "question": "Sentinel-5P's tropospheric NO₂ at the four NO₂ monitors over the June 2023 smoke fortnight, beside what the monitors measured, and which days the satellite has no usable value and why.",
+      "steps": [
+        {
+          "click": "#add-workflow",
+          "label": "Add workflow"
+        },
+        {
+          "fill": "workflow-name-edit",
+          "view": "project",
+          "label": "This workflow’s name — the question it answers",
+          "value": "Did the satellite see the city’s NO₂?"
+        },
+        {
+          "note": "The ground: the four NO₂ monitors in the authors' package, two in the Bronx and two in Queens, each with its daily mean in ppb. The package is already on this device from the first workflow."
+        },
+        {
+          "add": "table_input",
+          "as": "no2days"
+        },
+        {
+          "select": "no2days"
+        },
+        {
+          "click": "#open-table",
+          "label": "Import tabular data",
+          "opens": "Import tabular data"
+        },
+        {
+          "click": "#table-remote summary",
+          "label": "Or fetch from a URL",
+          "dialog": "Import tabular data"
+        },
+        {
+          "fill": "table-url",
+          "label": "URL of a CSV, Stata file or zip",
+          "value": "https://zenodo.org/api/records/22757330/files/NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0.zip/content",
+          "dialog": "Import tabular data"
+        },
+        {
+          "click": "#table-fetch",
+          "label": "Fetch",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-entry",
+          "label": "File inside the archive",
+          "value": "NYC_Pediatric_Asthma_Ozone_JHM_Reproducibility_v1.0/Data/Core/Derived/no2_site_day_raw_rebuild.csv",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-shape",
+          "label": "Shape of the file",
+          "value": "long",
+          "shown": "Long · one row per observation, one value column",
+          "dialog": "Import tabular data"
+        },
+        {
+          "choose": "table-value",
+          "label": "Value column",
+          "value": "value",
+          "dialog": "Import tabular data"
+        },
+        {
+          "tick": "table-keys",
+          "label": "Key columns",
+          "values": [
+            "date",
+            "site",
+            "Latitude",
+            "Longitude"
+          ],
+          "dialog": "Import tabular data"
+        },
+        {
+          "fill": "table-unit",
+          "label": "Unit of the value (entered by you)",
+          "value": "ppb",
+          "dialog": "Import tabular data"
+        },
+        {
+          "click": "#table-save",
+          "label": "Save table",
+          "dialog": "Import tabular data"
+        },
+        {
+          "note": "One row per monitor: total within the site and its position, leaving out the date."
+        },
+        {
+          "add": "group_table",
+          "as": "sites"
+        },
+        {
+          "connect": {
+            "from": "no2days",
+            "to": "sites",
+            "port": "records"
+          }
+        },
+        {
+          "select": "sites"
+        },
+        {
+          "tick": "group-keep",
+          "label": "Key columns to keep",
+          "values": [
+            "site",
+            "Latitude",
+            "Longitude"
+          ]
+        },
+        {
+          "note": "Each monitor as a point: x is the longitude and y the latitude, as geopandas' points_from_xy reads them."
+        },
+        {
+          "add": "point_input",
+          "as": "monitors"
+        },
+        {
+          "connect": {
+            "from": "sites",
+            "to": "monitors",
+            "port": "records"
+          }
+        },
+        {
+          "select": "monitors"
+        },
+        {
+          "fill": "source-label",
+          "label": "Source label",
+          "value": "NO₂ monitors"
+        },
+        {
+          "choose": "from-table-x",
+          "label": "x (longitude)",
+          "value": "Longitude"
+        },
+        {
+          "choose": "from-table-y",
+          "label": "y (latitude)",
+          "value": "Latitude"
+        },
+        {
+          "choose": "from-table-id",
+          "label": "Record ID",
+          "value": "site"
+        },
+        {
+          "choose": "from-table-name",
+          "label": "Label",
+          "value": "site"
+        },
+        {
+          "note": "The satellite: Sentinel-5P's tropospheric NO₂, on Planetary Computer with no account. It measures the column of NO₂ above each pixel, not the air a monitor breathes, so the two are compared, never substituted."
+        },
+        {
+          "add": "find_satellite_products",
+          "as": "product"
+        },
+        {
+          "select": "product"
+        },
+        {
+          "click": "#satellite-find",
+          "label": "Find satellite products",
+          "opens": "Find satellite products"
+        },
+        {
+          "fill": "sat-question",
+          "label": "Research topic or measurement",
+          "value": "NO2",
+          "dialog": "Find satellite products"
+        },
+        {
+          "click": "#sat-find",
+          "label": "Find data pathways",
+          "dialog": "Find satellite products"
+        },
+        {
+          "click": "[data-sat-choose=\"pc-s5p-no2\"]",
+          "label": "Choose this product",
+          "dialog": "Find satellite products"
+        },
+        {
+          "click": "#sat-close",
+          "label": "Done",
+          "dialog": "Find satellite products"
+        },
+        {
+          "note": "Where the files are: the overpasses of 1 to 14 June 2023, the smoke fortnight, over the city's extent typed as its four edges."
+        },
+        {
+          "add": "search_satellite_catalog",
+          "as": "search"
+        },
+        {
+          "connect": {
+            "from": "product",
+            "to": "search",
+            "port": "product"
+          }
+        },
+        {
+          "select": "search"
+        },
+        {
+          "click": "#catalog-search-open",
+          "label": "Search the catalog",
+          "opens": "Search a satellite catalog"
+        },
+        {
+          "fill": "cat-west",
+          "label": "West",
+          "value": "-74.26",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "fill": "cat-south",
+          "label": "South",
+          "value": "40.49",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "fill": "cat-east",
+          "label": "East",
+          "value": "-73.70",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "fill": "cat-north",
+          "label": "North",
+          "value": "40.92",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "fill": "cat-from",
+          "label": "From",
+          "value": "2023-06-01",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "fill": "cat-until",
+          "label": "Until",
+          "value": "2023-06-14",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "click": "#cat-search",
+          "label": "Search",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "note": "Each overpass comes as two items, near real time and offline; only the offline one is kept, so no reading is counted twice. Select the first to see its files."
+        },
+        {
+          "click": "[data-cat-select]",
+          "label": "2023-06",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "click": "#cat-close",
+          "label": "Done",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "note": "The value at each monitor, per overpass: the pixel whose centre is nearest, with its quality and, where there is none usable, which gap it is. Only the parts of each file those pixels need are read, about 10 to 15 MB an overpass; the run takes minutes."
+        },
+        {
+          "add": "sample_satellite_files_at_points",
+          "as": "sample"
+        },
+        {
+          "connect": {
+            "from": "monitors",
+            "to": "sample",
+            "port": "points"
+          }
+        },
+        {
+          "connect": {
+            "from": "search",
+            "to": "sample",
+            "port": "files"
+          }
+        },
+        {
+          "add": "table_output",
+          "as": "satellite"
+        },
+        {
+          "connect": {
+            "from": "sample",
+            "to": "satellite",
+            "port": "table"
+          }
+        },
+        {
+          "select": "satellite"
+        },
+        {
+          "fill": "table-label",
+          "label": "Results tab name",
+          "value": "Satellite NO₂ at the monitors, 1 to 14 June 2023"
+        },
+        {
+          "run": true
+        },
+        {
+          "see": "one row per monitor per overpass and per day without one, each with its qa_value and, where there is no usable value, which gap it is",
+          "check": "nitrogendioxide_tropospheric_column"
+        },
+        {
+          "note": "Side by side: the ground reading brought onto each satellite row, matched on the monitor and the day together."
+        },
+        {
+          "add": "relate_table",
+          "as": "together"
+        },
+        {
+          "connect": {
+            "from": "sample",
+            "to": "together",
+            "port": "records"
+          }
+        },
+        {
+          "connect": {
+            "from": "no2days",
+            "to": "together",
+            "port": "related"
+          }
+        },
+        {
+          "select": "together"
+        },
+        {
+          "choose": "relate-on",
+          "label": "Matched on",
+          "value": "site"
+        },
+        {
+          "pick": "relate-also",
+          "label": "And also matched on",
+          "values": [
+            "date"
+          ]
+        },
+        {
+          "choose": "relate-bring",
+          "label": "Bring across",
+          "value": "value"
+        },
+        {
+          "note": "Queens College 2 has no NO₂ reading for 3 to 5 June. Those satellite rows are kept, named, so the gap stays visible."
+        },
+        {
+          "click": "#relate-open-join",
+          "label": "Open the join",
+          "opens": "the join"
+        },
+        {
+          "click": "label.check:has(input[value=\"keep\"])",
+          "label": "Keep them under a category I name",
+          "dialog": "the join"
+        },
+        {
+          "fill": "relate-join-label",
+          "label": "Name for the category",
+          "value": "no ground reading",
+          "dialog": "the join"
+        },
+        {
+          "fill": "relate-join-reason",
+          "label": "Why (recorded in the evidence)",
+          "value": "A satellite reading without a ground reading is still a satellite reading; dropping it would hide the gap.",
+          "dialog": "the join"
+        },
+        {
+          "click": "#relate-join-finalize",
+          "label": "Finalize",
+          "dialog": "the join"
+        },
+        {
+          "add": "table_output",
+          "as": "table"
+        },
+        {
+          "connect": {
+            "from": "together",
+            "to": "table",
+            "port": "table"
+          }
+        },
+        {
+          "select": "table"
+        },
+        {
+          "fill": "table-label",
+          "label": "Results tab name",
+          "value": "Satellite and ground NO₂ by monitor and day"
+        },
+        {
+          "run": true
+        },
+        {
+          "see": "one row per monitor per overpass and per day without one: the satellite column where it passed qa_value ≥ 0.75, the value as read, its quality, the kind of gap, and the ground reading in ppb beside it",
+          "check": "no ground reading"
+        }
+      ]
     }
   ]
 }
