@@ -23,5 +23,11 @@ Not held here: the ozone monitors' readings and positions. They are read
           from the same Zenodo package; the package names US EPA AQS as
           their custodian.
 
+Not held here: Sentinel-5P TROPOMI tropospheric NO2. Read at the monitors from
+          Microsoft Planetary Computer when the sixth workflow runs; the
+          search results the project keeps name the files, not their values.
+          Contains modified Copernicus Sentinel data 2023. Free, full and open
+          access under the Sentinel Data Legal Notice.
+
 The authors and the custodians are not associated with this example and have
 not endorsed it.
