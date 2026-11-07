@@ -1308,51 +1308,54 @@
           "select": "together"
         },
         {
-          "choose": "relate-on",
-          "label": "Matched on",
-          "value": "site"
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Relate a column from another table"
         },
         {
-          "pick": "relate-also",
+          "choose": "relate-on",
+          "label": "Matched on",
+          "value": "site",
+          "dialog": "Relate a column from another table"
+        },
+        {
+          "tick": "relate-also",
           "label": "And also matched on",
           "values": [
             "date"
-          ]
+          ],
+          "dialog": "Relate a column from another table"
         },
         {
           "choose": "relate-bring",
           "label": "Bring across",
-          "value": "value"
+          "value": "value",
+          "dialog": "Relate a column from another table"
         },
         {
           "note": "Queens College 2 has no NO₂ reading for 3 to 5 June. Those satellite rows are kept, named, so the gap stays visible."
         },
         {
-          "click": "#relate-open-join",
-          "label": "Open the join",
-          "opens": "the join"
-        },
-        {
-          "click": "label.check:has(input[value=\"keep\"])",
+          "click": "#relate-config label:has(> input[value=\"keep\"])",
           "label": "Keep them under a category I name",
-          "dialog": "the join"
+          "dialog": "Relate a column from another table"
         },
         {
           "fill": "relate-join-label",
           "label": "Name for the category",
           "value": "no ground reading",
-          "dialog": "the join"
+          "dialog": "Relate a column from another table"
         },
         {
           "fill": "relate-join-reason",
           "label": "Why (recorded in the evidence)",
           "value": "A satellite reading without a ground reading is still a satellite reading; dropping it would hide the gap.",
-          "dialog": "the join"
+          "dialog": "Relate a column from another table"
         },
         {
-          "click": "#relate-join-finalize",
-          "label": "Finalize",
-          "dialog": "the join"
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Relate a column from another table"
         },
         {
           "add": "table_output",
