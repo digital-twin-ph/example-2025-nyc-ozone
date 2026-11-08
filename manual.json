@@ -145,6 +145,11 @@
           "select": "days"
         },
         {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Select rows by value"
+        },
+        {
           "choose": "select-key",
           "label": "Key column to choose by",
           "value": "date"
@@ -164,6 +169,11 @@
           "fill": "select-to",
           "label": "To",
           "value": "2023-06-14"
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Select rows by value"
         },
         {
           "add": "chart_output",
@@ -418,6 +428,11 @@
           "select": "months"
         },
         {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Select rows by value"
+        },
+        {
           "choose": "select-key",
           "label": "Key column to choose by",
           "value": "date"
@@ -437,6 +452,11 @@
           "fill": "select-to",
           "label": "To",
           "value": "2023-07-31"
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Select rows by value"
         },
         {
           "add": "chart_output",
