@@ -901,13 +901,24 @@
           "select": "sites"
         },
         {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Total within groups"
+        },
+        {
           "tick": "group-keep",
           "label": "Key columns to keep",
           "values": [
             "site",
             "Latitude",
             "Longitude"
-          ]
+          ],
+          "dialog": "Total within groups"
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Total within groups"
         },
         {
           "note": "Each monitor as a point: x is the longitude and y the latitude, as geopandas' points_from_xy reads them."
@@ -1094,13 +1105,24 @@
           "select": "sites"
         },
         {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Total within groups"
+        },
+        {
           "tick": "group-keep",
           "label": "Key columns to keep",
           "values": [
             "site",
             "Latitude",
             "Longitude"
-          ]
+          ],
+          "dialog": "Total within groups"
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Total within groups"
         },
         {
           "note": "Each monitor as a point: x is the longitude and y the latitude, as geopandas' points_from_xy reads them."
