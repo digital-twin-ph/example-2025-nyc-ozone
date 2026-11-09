@@ -939,28 +939,42 @@
         },
         {
           "fill": "source-label",
-          "label": "Source label",
+          "label": "Name",
           "value": "Ozone monitors"
+        },
+        {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Point data"
         },
         {
           "choose": "from-table-x",
           "label": "x (longitude)",
-          "value": "Longitude"
+          "value": "Longitude",
+          "dialog": "Point data"
         },
         {
           "choose": "from-table-y",
           "label": "y (latitude)",
-          "value": "Latitude"
+          "value": "Latitude",
+          "dialog": "Point data"
         },
         {
           "choose": "from-table-id",
           "label": "Record ID",
-          "value": "site"
+          "value": "site",
+          "dialog": "Point data"
         },
         {
           "choose": "from-table-name",
           "label": "Label",
-          "value": "site"
+          "value": "site",
+          "dialog": "Point data"
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Point data"
         },
         {
           "note": "The map opens the write-up: it goes under Introduction rather than Results."
@@ -1154,28 +1168,42 @@
         },
         {
           "fill": "source-label",
-          "label": "Source label",
+          "label": "Name",
           "value": "NO₂ monitors"
+        },
+        {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Point data"
         },
         {
           "choose": "from-table-x",
           "label": "x (longitude)",
-          "value": "Longitude"
+          "value": "Longitude",
+          "dialog": "Point data"
         },
         {
           "choose": "from-table-y",
           "label": "y (latitude)",
-          "value": "Latitude"
+          "value": "Latitude",
+          "dialog": "Point data"
         },
         {
           "choose": "from-table-id",
           "label": "Record ID",
-          "value": "site"
+          "value": "site",
+          "dialog": "Point data"
         },
         {
           "choose": "from-table-name",
           "label": "Label",
-          "value": "site"
+          "value": "site",
+          "dialog": "Point data"
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Point data"
         },
         {
           "note": "The satellite: Sentinel-5P's tropospheric NO₂, on Planetary Computer with no account. It measures the column of NO₂ above each pixel, not the air a monitor breathes, so the two are compared, never substituted."
