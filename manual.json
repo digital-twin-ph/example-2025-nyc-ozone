@@ -988,9 +988,20 @@
           "value": "New York City and its ozone monitors"
         },
         {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Map"
+        },
+        {
           "choose": "output-section",
           "label": "In the write-up, under",
-          "value": "Introduction"
+          "value": "Introduction",
+          "dialog": "Map"
+        },
+        {
+          "click": "#map-config #config-apply",
+          "label": "Apply",
+          "dialog": "Map"
         },
         {
           "run": true
