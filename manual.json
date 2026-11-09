@@ -1367,7 +1367,7 @@
         },
         {
           "choose": "relate-on",
-          "label": "Matched on",
+          "label": "Matched on, in the first table",
           "value": "site",
           "dialog": "Relate a column from another table"
         },
