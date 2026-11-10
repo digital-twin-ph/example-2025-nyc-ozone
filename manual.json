@@ -190,9 +190,14 @@
           "select": "chart"
         },
         {
-          "fill": "output-label",
+          "fill": "chart-label",
           "label": "Results tab name",
           "value": "Asthma ED visits, ages 5 to 17, 1 to 14 June 2023"
+        },
+        {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Chart"
         },
         {
           "fill": "chart-title",
@@ -218,6 +223,11 @@
           "fill": "chart-source-note",
           "label": "Source / method note",
           "value": "NYC DOHMH EpiQuery counts, from the authors' reproducibility package (Zenodo 10.5281/zenodo.22757330), analysis_master_raw_rebuild.csv."
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Chart"
         },
         {
           "add": "table_output",
@@ -473,9 +483,14 @@
           "select": "chart"
         },
         {
-          "fill": "output-label",
+          "fill": "chart-label",
           "label": "Results tab name",
           "value": "Visits and the air, May to July 2023"
+        },
+        {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Chart"
         },
         {
           "choose": "chart-panels-by",
@@ -517,6 +532,11 @@
           "fill": "chart-source-note",
           "label": "Source / method note",
           "value": "NYC DOHMH EpiQuery counts and the authors' exposure series, from their reproducibility package (Zenodo 10.5281/zenodo.22757330), analysis_master_raw_rebuild.csv."
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Chart"
         },
         {
           "run": true
