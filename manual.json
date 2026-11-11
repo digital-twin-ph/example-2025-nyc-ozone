@@ -1341,7 +1341,7 @@
           "note": "The value at each monitor, per overpass: the pixel whose centre is nearest, with its quality and, where there is none usable, which gap it is. Only the parts of each file those pixels need are read, about 10 to 15 MB an overpass; the run takes minutes."
         },
         {
-          "add": "sample_satellite_files_at_points",
+          "add": "sample_raster",
           "as": "sample"
         },
         {
