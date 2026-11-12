@@ -668,51 +668,65 @@
           "select": "model"
         },
         {
+          "click": "#configure-step",
+          "label": "Configure…",
+          "opens": "Regression"
+        },
+        {
           "choose": "reg-family",
           "label": "Model",
           "value": "poisson",
-          "shown": "Poisson regression · rate ratios"
+          "shown": "Poisson regression · rate ratios",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-outcome",
           "label": "Outcome",
-          "value": "count"
+          "value": "count",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-exposure",
           "label": "Exposure",
-          "value": "o3_lag02_10"
+          "value": "o3_lag02_10",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-adjust-add",
           "label": "Add a variable",
-          "value": "pm25_lag02_10"
+          "value": "pm25_lag02_10",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-adjust-add",
           "label": "Add a variable",
-          "value": "no2_lag02_10"
+          "value": "no2_lag02_10",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-adjust-add",
           "label": "Add a variable",
-          "value": "tmean_lag03"
+          "value": "tmean_lag03",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-kind-tmean_lag03",
           "label": "tmean_lag03 as",
           "value": "spline",
-          "shown": "Spline, 4 df"
+          "shown": "Spline, 4 df",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-adjust-add",
           "label": "Add a variable",
-          "value": "holiday"
+          "value": "holiday",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-strata",
           "label": "Strata, as fixed effects",
-          "value": "stratum"
+          "value": "stratum",
+          "dialog": "Regression"
         },
         {
           "note": "Visits on one day are correlated with visits on the next, so the authors' intervals allow for it: HAC standard errors over 14 days, with rows in date order."
@@ -721,17 +735,25 @@
           "choose": "reg-errors",
           "label": "Intervals",
           "value": "hac",
-          "shown": "Wald, HAC (Newey-West) for serial correlation"
+          "shown": "Wald, HAC (Newey-West) for serial correlation",
+          "dialog": "Regression"
         },
         {
           "fill": "reg-hac-lag",
           "label": "Lags",
-          "value": "14"
+          "value": "14",
+          "dialog": "Regression"
         },
         {
           "choose": "reg-order",
           "label": "Rows in the order of",
-          "value": "date"
+          "value": "date",
+          "dialog": "Regression"
+        },
+        {
+          "click": "#config-apply",
+          "label": "Apply",
+          "dialog": "Regression"
         },
         {
           "add": "table_output",
