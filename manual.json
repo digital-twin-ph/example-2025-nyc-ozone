@@ -46,7 +46,7 @@
           "select": "daily"
         },
         {
-          "click": "#open-table",
+          "click": "#configure-step",
           "label": "Configure…",
           "opens": "Tabular data"
         },
@@ -332,7 +332,7 @@
           "select": "daily"
         },
         {
-          "click": "#open-table",
+          "click": "#configure-step",
           "label": "Configure…",
           "opens": "Tabular data"
         },
@@ -572,7 +572,7 @@
           "select": "daily"
         },
         {
-          "click": "#open-table",
+          "click": "#configure-step",
           "label": "Configure…",
           "opens": "Tabular data"
         },
@@ -864,7 +864,7 @@
           "select": "o3days"
         },
         {
-          "click": "#open-table",
+          "click": "#configure-step",
           "label": "Configure…",
           "opens": "Tabular data"
         },
@@ -1093,7 +1093,7 @@
           "select": "no2days"
         },
         {
-          "click": "#open-table",
+          "click": "#configure-step",
           "label": "Configure…",
           "opens": "Tabular data"
         },
