@@ -1505,6 +1505,47 @@
         {
           "see": "one row per monitor per overpass and per day without one: the satellite column where it passed qa_value ≥ 0.75, the value as read, its quality, the kind of gap, and the ground reading in ppb beside it",
           "check": "no ground reading"
+        },
+        {
+          "note": "In Notes, add a note to the Introduction with the diagram from this repository: what a monitor and the satellite each measure, and how the sixth workflow puts them side by side."
+        },
+        {
+          "click": "[data-add-note=\"Introduction\"]",
+          "view": "notes",
+          "label": "note"
+        },
+        {
+          "fill": "note-text",
+          "label": "The note",
+          "value": "The sixth workflow compares Sentinel-5P’s NO₂ with the four NO₂ monitors over 1 to 14 June 2023, the smoke fortnight. This is what each of the two measures."
+        },
+        {
+          "click": "[data-note-tab=\"image\"]",
+          "label": "Image"
+        },
+        {
+          "file": "note-image-file",
+          "label": "Picture: PNG, JPEG, WebP or SVG",
+          "path": "docs/ground-and-satellite-no2.svg"
+        },
+        {
+          "fill": "note-image-alt",
+          "label": "Alt text: what the picture shows",
+          "value": "A cross-section of the city, not to scale. Above it, Sentinel-5P passes once a day in the early afternoon and measures all the NO₂ in a column from the ground to the top of the troposphere, over a pixel about 3.5 by 5.5 km, in mol/m². At street level, a monitor measures the NO₂ in the air at its inlet, a few metres up, given as a daily mean in ppb. The monitor is not at the pixel's centre. The sixth workflow takes the pixel whose centre is nearest each monitor, matches the two on monitor and day, keeps a satellite value only where its quality value is at least 0.75, and names each gap: no overpass, no retrieval, below the quality threshold, or no ground reading. A table below compares the two on what, where, when, unit and gaps. A last strip notes that for ozone the satellite gives a total column, mostly stratospheric, and for PM2.5 an aerosol optical depth, neither a surface concentration."
+        },
+        {
+          "fill": "note-image-caption",
+          "label": "Caption: what a reader is to take from it",
+          "value": "A monitor and the satellite measure different things. The monitor gives the air at its inlet, as a daily mean in ppb. The satellite gives all the NO₂ in the column over a pixel of about 3.5 × 5.5 km, once a day, in mol/m². So the workflow sets them side by side by monitor and day, and asks whether they rise and fall together, not whether their values agree."
+        },
+        {
+          "click": "#note-save",
+          "label": "Add note"
+        },
+        {
+          "see": "the diagram above the note, with its caption",
+          "within": ".notes-part[data-section=\"Introduction\"]",
+          "check": "A monitor and the satellite measure different things"
         }
       ]
     }

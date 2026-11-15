@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+  <title id="t">NO₂ at a ground monitor and from the satellite: what each measures, and how they are compared</title>
+  <desc id="d">A cross-section of the city, not to scale. Above it, Sentinel-5P passes once a day in the early afternoon and measures all the NO₂ in a column from the ground to the top of the troposphere, over a pixel about 3.5 by 5.5 km, in mol/m². At street level, a monitor measures the NO₂ in the air at its inlet, a few metres up, given as a daily mean in ppb. The monitor is not at the pixel's centre. The sixth workflow takes the pixel whose centre is nearest each monitor, matches the two on monitor and day, keeps a satellite value only where its quality value is at least 0.75, and names each gap: no overpass, no retrieval, below the quality threshold, or no ground reading. A table below compares the two on what, where, when, unit and gaps. A last strip notes that for ozone the satellite gives a total column, mostly stratospheric, and for PM2.5 an aerosol optical depth, neither a surface concentration.</desc>
+  <defs>
+    <linearGradient id="no2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a6611a" stop-opacity="0.04"/>
+      <stop offset="0.6" stop-color="#a6611a" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#a6611a" stop-opacity="0.42"/>
+    </linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+
+  <text x="40" y="44" font-size="26" font-weight="700" fill="#111">NO₂ at a monitor and from the satellite: what each measures</text>
+  <text x="40" y="72" font-size="17" fill="#333">A cross-section of the city, not to scale. Sixth workflow: <tspan font-style="italic">Did the satellite see the city’s NO₂?</tspan></text>
+
+  <!-- Satellite and its view of one pixel -->
+  <rect x="352" y="112" width="56" height="26" rx="3" fill="#2b2b2b"/>
+  <rect x="316" y="118" width="32" height="14" fill="#4a6fa5"/>
+  <rect x="412" y="118" width="32" height="14" fill="#4a6fa5"/>
+  <path d="M380 140 L250 222 M380 140 L510 222" stroke="#555" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+  <text x="460" y="116" font-size="18" font-weight="700" fill="#111">Sentinel-5P (TROPOMI)</text>
+  <text x="460" y="140" font-size="17" fill="#333">one pass a day, early afternoon</text>
+  <text x="460" y="162" font-size="17" fill="#333">(about 13:30 local solar time)</text>
+
+  <!-- Top of the troposphere -->
+  <path d="M40 222 L700 222" stroke="#6a2fa8" stroke-width="3" stroke-dasharray="4 6" fill="none"/>
+  <text x="40" y="212" font-size="17" fill="#5a2a8c">top of the troposphere, roughly 10 to 15 km up</text>
+
+  <!-- The column over one pixel -->
+  <rect x="250" y="222" width="260" height="338" fill="url(#no2)" stroke="#a6611a" stroke-width="2.5"/>
+  <text x="40" y="300" font-size="18" font-weight="700" fill="#7a4512">The column</text>
+  <text x="40" y="324" font-size="17" fill="#333">all the NO₂ from the</text>
+  <text x="40" y="346" font-size="17" fill="#333">ground to the top of</text>
+  <text x="40" y="368" font-size="17" fill="#333">the troposphere, over</text>
+  <text x="40" y="390" font-size="17" fill="#333">the whole pixel</text>
+  <text x="40" y="418" font-size="17" fill="#333">mol/m²</text>
+  <path d="M206 360 L244 360" stroke="#7a4512" stroke-width="2" marker-end="url(#a)" fill="none"/>
+  <text x="530" y="400" font-size="17" fill="#333">shading: NO₂ is</text>
+  <text x="530" y="422" font-size="17" fill="#333">densest near the</text>
+  <text x="530" y="444" font-size="17" fill="#333">ground, where it</text>
+  <text x="530" y="466" font-size="17" fill="#333">is given off</text>
+
+  <!-- The city -->
+  <g fill="#c9c9c9">
+    <rect x="60" y="520" width="40" height="40"/><rect x="108" y="500" width="30" height="60"/>
+    <rect x="150" y="512" width="44" height="48"/><rect x="262" y="490" width="34" height="70"/>
+    <rect x="304" y="516" width="40" height="44"/><rect x="396" y="512" width="30" height="48"/>
+    <rect x="482" y="524" width="22" height="36"/><rect x="590" y="530" width="44" height="30"/>
+    <rect x="642" y="508" width="40" height="52"/>
+  </g>
+  <rect x="40" y="560" width="660" height="34" fill="#e8e1d4"/>
+  <path d="M40 560 L700 560" stroke="#555" stroke-width="2" fill="none"/>
+
+  <!-- Pixel centre and the monitor, off-centre -->
+  <path d="M380 568 L380 590 M369 579 L391 579" stroke="#7a4512" stroke-width="3"/>
+  <rect x="440" y="534" width="30" height="26" fill="#ffffff" stroke="#111" stroke-width="2"/>
+  <path d="M455 534 L455 516" stroke="#111" stroke-width="2"/>
+  <circle cx="455" cy="513" r="5" fill="#d7191c"/>
+  <path d="M250 600 L250 612 L510 612 L510 600" stroke="#7a4512" stroke-width="2" fill="none"/>
+  <text x="380" y="632" text-anchor="middle" font-size="17" fill="#7a4512">one pixel, about 3.5 × 5.5 km; + marks its centre</text>
+
+  <!-- Monitor label -->
+  <text x="40" y="460" font-size="18" font-weight="700" fill="#b2151a">The monitor</text>
+  <text x="40" y="484" font-size="17" fill="#333">the air at its inlet,</text>
+  <text x="40" y="506" font-size="17" fill="#333">a few metres up · ppb</text>
+  <path d="M206 498 L444 512" stroke="#b2151a" stroke-width="2" marker-end="url(#a)" fill="none"/>
+
+  <!-- How the workflow relates them -->
+  <rect x="730" y="196" width="430" height="436" rx="6" fill="#f4f6f9" stroke="#8a9bb0" stroke-width="1.5"/>
+  <text x="752" y="230" font-size="19" font-weight="700" fill="#111">How the workflow puts them together</text>
+  <text x="752" y="266" font-size="17" font-weight="700" fill="#111">1 · Place</text>
+  <text x="752" y="290" font-size="17" fill="#333">the pixel whose centre is nearest</text>
+  <text x="752" y="312" font-size="17" fill="#333">the monitor, not an average of pixels</text>
+  <text x="752" y="348" font-size="17" font-weight="700" fill="#111">2 · Day</text>
+  <text x="752" y="372" font-size="17" fill="#333">matched on monitor and day: one</text>
+  <text x="752" y="394" font-size="17" fill="#333">overpass beside that day’s mean</text>
+  <text x="752" y="430" font-size="17" font-weight="700" fill="#111">3 · Quality</text>
+  <text x="752" y="454" font-size="17" fill="#333">a satellite value is kept only where</text>
+  <text x="752" y="476" font-size="17" fill="#333">its qa_value is at least 0.75</text>
+  <text x="752" y="512" font-size="17" font-weight="700" fill="#111">4 · Gaps, each named</text>
+  <text x="752" y="536" font-size="17" fill="#333">no overpass · no retrieval (mostly</text>
+  <text x="752" y="558" font-size="17" fill="#333">cloud) · below the quality threshold ·</text>
+  <text x="752" y="580" font-size="17" fill="#333">no ground reading</text>
+  <text x="752" y="614" font-size="17" font-weight="700" fill="#111">Side by side, never substituted</text>
+
+  <!-- Comparison table -->
+  <g font-size="17" fill="#222">
+    <rect x="40" y="664" width="1120" height="36" fill="#eef0f3"/>
+    <text x="52" y="688" font-weight="700"> </text>
+    <text x="210" y="688" font-weight="700" fill="#b2151a">Monitor</text>
+    <text x="690" y="688" font-weight="700" fill="#7a4512">Satellite</text>
+
+    <text x="52" y="726" font-weight="700">Measures</text>
+    <text x="210" y="726">NO₂ in the air at the inlet</text>
+    <text x="690" y="726">NO₂ in the whole tropospheric column</text>
+
+    <text x="52" y="758" font-weight="700">Where</text>
+    <text x="210" y="758">a point: four monitors, two in the Bronx, two in Queens</text>
+    <text x="690" y="758">a pixel of about 3.5 × 5.5 km</text>
+
+    <text x="52" y="790" font-weight="700">When</text>
+    <text x="210" y="790">through the day, given as a daily mean</text>
+    <text x="690" y="790">one moment a day, at the overpass</text>
+
+    <text x="52" y="822" font-weight="700">Unit</text>
+    <text x="210" y="822">ppb (parts per billion)</text>
+    <text x="690" y="822">mol/m² (moles of NO₂ per square metre)</text>
+
+    <text x="52" y="854" font-weight="700">Missing when</text>
+    <text x="210" y="854">the monitor did not report</text>
+    <text x="690" y="854">no overpass, cloud, or low quality</text>
+    <path d="M40 706 L1160 706 M40 738 L1160 738 M40 770 L1160 770 M40 802 L1160 802 M40 834 L1160 834 M40 866 L1160 866" stroke="#d0d4da" stroke-width="1"/>
+  </g>
+
+  <!-- The other pollutants -->
+  <text x="40" y="910" font-size="18" font-weight="700" fill="#111">Ozone and PM2.5 differ again</text>
+  <text x="40" y="938" font-size="17" fill="#333">Ozone: monitors give ppb at the inlet; Sentinel-5P’s ozone is a total column, mostly in the stratosphere.</text>
+  <text x="40" y="964" font-size="17" fill="#333">PM2.5: monitors give µg/m³; satellites give aerosol optical depth, light dimmed through the whole column.</text>
+</svg>

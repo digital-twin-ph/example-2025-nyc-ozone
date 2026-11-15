@@ -68,8 +68,9 @@ There is no published or preprint paper; these are the authors' archived outputs
 
 | File | What it holds |
 | --- | --- |
-| `fieldwork-project.json.gz` | The Fieldwork project: the workflows, where the tables come from and the five borough outlines; no counts and no monitor readings |
+| `fieldwork-project.json.gz` | The Fieldwork project: the workflows, where the tables come from and the five borough outlines, and the Introduction's note with its diagram; no counts and no monitor readings |
 | `provenance.json` | The fetch: URL, the file inside the package, both digests |
+| `docs/ground-and-satellite-no2.svg` | The diagram in the Introduction's note: what a monitor and the satellite each measure, and how the sixth workflow puts them side by side |
 | `manual.json` | How to build all six workflows by hand, step by step. Fieldwork shows it in the Manual tab, and its from-scratch test performs it |
 
 ## References
