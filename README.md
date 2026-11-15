@@ -14,7 +14,7 @@ workflows and the description of where the table comes from.
 | Workflow | Nodes | What it shows |
 | --- | --- | --- |
 | What happened during the June 2023 smoke? | 4 | Daily visits, 1 to 14 June 2023, as bars, and the same days with ozone and PM2.5 |
-| Ten years of daily visits | 2 | All 3,653 days as a table |
+| How many visits were there each day over ten years? | 2 | All 3,653 days as a table |
 | Did visits move with the air? | 3 | Visits, ozone, PM2.5 and temperature, May to July 2023, one panel each on one date axis, 1 to 14 June shaded. Timing, not effect |
 | How much does ozone raise visits? | 3 | The authors' model: Poisson regression with 840 year-month-weekday strata, a temperature spline and HAC intervals. 1.061 (1.035–1.088) per 10 ppb, as published |
 | Where was the air measured? | 5 | The study area: the five boroughs, with the six ozone monitors whose daily readings the study averages. The map opens the write-up, under Introduction |

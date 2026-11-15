@@ -258,7 +258,7 @@
       ]
     },
     {
-      "name": "Ten years of daily visits",
+      "name": "How many visits were there each day over ten years?",
       "question": "Every day from 2016 to 2025, as a table to read through.",
       "steps": [
         {
@@ -269,7 +269,7 @@
           "fill": "workflow-name-edit",
           "view": "project",
           "label": "This workflow’s name — the question it answers",
-          "value": "Ten years of daily visits"
+          "value": "How many visits were there each day over ten years?"
         },
         {
           "note": "The same table as the first workflow, with the same settings: reuse it rather than fetch and set it up again."
