@@ -1301,8 +1301,8 @@
           "select": "search"
         },
         {
-          "click": "#catalog-search-open",
-          "label": "Search the catalog",
+          "click": "#configure-step",
+          "label": "Configure…",
           "opens": "Search a satellite catalog"
         },
         {
@@ -1344,6 +1344,11 @@
         {
           "click": "#cat-search",
           "label": "Search",
+          "dialog": "Search a satellite catalog"
+        },
+        {
+          "see": "the files found, listed under Coverage once the catalog answers; a search of a year can take a minute",
+          "appears": "#cat-coverage .satellite-items",
           "dialog": "Search a satellite catalog"
         },
         {
