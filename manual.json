@@ -118,7 +118,7 @@
         },
         {
           "fill": "table-unit",
-          "label": "Unit of the value (entered by you)",
+          "label": "Unit of the value",
           "value": "visits/day",
           "dialog": "Tabular data"
         },
@@ -641,7 +641,7 @@
         },
         {
           "fill": "table-unit",
-          "label": "Unit of the value (entered by you)",
+          "label": "Unit of the value",
           "value": "visits/day",
           "dialog": "Tabular data"
         },
@@ -916,7 +916,7 @@
         },
         {
           "fill": "table-unit",
-          "label": "Unit of the value (entered by you)",
+          "label": "Unit of the value",
           "value": "ppb",
           "dialog": "Tabular data"
         },
@@ -1145,7 +1145,7 @@
         },
         {
           "fill": "table-unit",
-          "label": "Unit of the value (entered by you)",
+          "label": "Unit of the value",
           "value": "ppb",
           "dialog": "Tabular data"
         },
