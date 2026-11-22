@@ -1258,8 +1258,8 @@
           "select": "product"
         },
         {
-          "click": "#satellite-find",
-          "label": "Find satellite products",
+          "click": "#configure-step",
+          "label": "Configure…",
           "opens": "Find satellite products"
         },
         {
