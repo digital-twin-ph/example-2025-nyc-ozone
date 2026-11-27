@@ -1,6 +1,6 @@
 # Ozone and child asthma emergency visits, New York City, 2016–2025
 
-A worked example for [Fieldwork](https://github.com/digital-twin-ph/fieldwork): daily asthma emergency department
+A worked example for [Fieldwork](https://github.com/fieldwork-app/fieldwork): daily asthma emergency department
 visits among children aged 5 to 17 in New York City, with ozone, PM2.5, NO₂ and weather, from the reproducibility
 package of Lian et al.
 
